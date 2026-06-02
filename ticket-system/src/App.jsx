@@ -1,25 +1,24 @@
-import React, { useState, useEffect } from "react";
-import EventList from "./components/EventList";
-import "./App.css"
+import React, { useState, useEffect } from 'react';
+import EventList from './components/EventList';
+import './App.css';
 
 const mockEventsData = [
   {
-        "id": 1,
-        "title": "Zomer Festival 2026",
-        "date": "2026-07-15",
-        "location": "Amsterdam Arena",
-        "price": 45.00,
-        "availableTickets": 150
-        
-    },
-    {
-      "id": 2,
-        "title": "Live in Concert: De Jeugd",
-        "date": "2026-08-22",
-        "location": "Rotterdam",
-        "price": 35.50,
-        "availableTickets": 80 
-    },
+    id: 1,
+    title: "Zomer Festival 2026",
+    date: "15 juli 2026",
+    location: "Amsterdam Arena",
+    price: 45.00,
+    availableTickets: 150
+  },
+  {
+    id: 2,
+    title: "Live in Concert: De Jeugd",
+    date: "22 augustus 2026",
+    location: "Rotterdam Ahoy",
+    price: 35.50,
+    availableTickets: 80
+  },
   {
     id: 3,
     title: "Techno Rave Night",
@@ -30,12 +29,11 @@ const mockEventsData = [
   }
 ];
 
-function App () {
-    const [events, setEvents] = useState([]);
-    const [loading, setLoading] = useState(true);
+function App() {
+  const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        //fetch delay simulation
+  useEffect(() => {
     const timer = setTimeout(() => {
       setEvents(mockEventsData);
       setLoading(false);
@@ -63,3 +61,6 @@ function App () {
     </div>
   );
 }
+
+
+export default App;
