@@ -1,0 +1,19 @@
+[ 
+    {
+        "id": 1,
+        "title": "Zomer Festival 2026",
+        "date": "2026-07-15",
+        "location": "Amsterdam Arena",
+        "price": 45.00,
+        "availableTickets": 150
+        
+    },
+    {
+      "id": 2,
+        "title": "Live in Concert: De Jeugd",
+        "date": "2026-08-22",
+        "location": "Rotterdam",
+        "price": 35.50,
+        "availableTickets": 80 
+    }
+]
