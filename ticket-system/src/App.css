@@ -1,11 +1,11 @@
-/* 1. Force a full reset so default Vite/browser styles don't override us */
+
 html, body, #root {
   margin: 0;
   padding: 0;
   width: 100%;
   min-height: 100vh;
-  background-color: #121214 !important; /* Force dark background */
-  color: #e1e1e6 !important; /* Force light text */
+  background-color: #121214 !important; 
+  color: #e1e1e6 !important;
   font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   display: block;
 }
