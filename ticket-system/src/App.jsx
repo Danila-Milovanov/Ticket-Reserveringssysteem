@@ -17,7 +17,7 @@ const mockEventsData = [
     date: "22 augustus 2026",
     location: "Rotterdam Ahoy",
     price: 35.50,
-    availableTickets: 80
+    availableTickets: 8
   },
   {
     id: 3,

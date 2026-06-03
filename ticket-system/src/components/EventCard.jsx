@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react'; 
+
 
 const EventCard = ({ event, onReserve }) => {
     const [ quantity, setQuantity] = useState(1);
