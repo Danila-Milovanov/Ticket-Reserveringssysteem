@@ -42,6 +42,25 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
+
+  const handleReserveTickets = (eventId, qtyToReserve) => {
+    setEvents(prevEvents => 
+      prevEvents.map(event => {
+        if (event.id === eventId) {
+          const updatedTickets = event.availableTickets - qtyToReserve;
+          
+          alert(`Succesvol ${qtyToReserve} ticket(s) gereserveerd voor ${event.title}!`);
+          
+          return {
+            ...event,
+            availableTickets: updatedTickets < 0 ? 0 : updatedTickets
+          };
+        }
+        return event;
+      })
+    );
+  };
+
   return (
     <div className="app-container">
       <header>
@@ -55,7 +74,7 @@ function App() {
         {loading ? (
           <div className="loader">Evenementen laden...</div>
         ) : (
-          <EventList events={events} />
+          <EventList events={events} onReserve={handleReserveTickets} />
         )}
       </main>
     </div>
