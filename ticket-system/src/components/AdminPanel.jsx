@@ -120,3 +120,5 @@ const AdminPanel = ({ events, onAddEvent, onUpdateEvent, onDeleteEvent }) => {
 };
 
 export default AdminPanel;
+
+//ready to deploy
