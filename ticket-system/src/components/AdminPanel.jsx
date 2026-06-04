@@ -90,8 +90,33 @@ const AdminPanel = ({ events, onAddEvent, onUpdateEvent, onDeleteEvent }) => {
                     {editingId && <button type='button' className='cancel-btn' onClick={cancelEdit}>Annuleren</button>}
                 </div>
             </form>
-            
 
+            {/* event list with edit/delete */}
+            <div className="admin-table-container">
+                <table className="admin-tabble">
+                    <thead>
+                        <tr>
+                            <th>Titel</th>
+                            <th>Locaties</th>
+                            <th>Acties</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {events.map(event => (
+                            <tr key={event.id}>
+                                <td>{event.title}</td>
+                                <td>{event.location}</td>
+                                <td>
+                                    <button className="edit-action-btn" onClick={() => startEdit(event)}>Aanpassen</button>
+                                    <button className="delete-action-btn" onClick={() => onDeleteEvent(event.id)}>Verwijderen</button>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
-    )
-}
+    );
+};
+
+export default AdminPanel;
