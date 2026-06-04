@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import EventList from './components/EventList';
+import SeatingChart from './components/SeatingChart';
 import './App.css';
 
 const mockEventsData = [
@@ -74,7 +75,11 @@ function App() {
         {loading ? (
           <div className="loader">Evenementen laden...</div>
         ) : (
+          <>
           <EventList events={events} onReserve={handleReserveTickets} />
+
+          <SeatingChart eventPrice={45.00}/>
+          </>
         )}
       </main>
     </div>

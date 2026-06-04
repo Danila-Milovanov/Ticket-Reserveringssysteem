@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const INITIAL_SEATING = [
+const INITIAL_SEATS = [
     { id: 'A1', row: 'A', number: 1, status: 'available' },
     { id: 'A2', row: 'A', number: 2, status: 'occupied' }, // taken
     { id: 'A3', row: 'A', number: 3, status: 'available' },
@@ -41,7 +41,7 @@ const SeatingChart = ({ eventPrice }) => {
   return (
     <div className="seating-container">
         <h3>Kies je zitplaatsen</h3>
-        // Legenda
+        {/* legend */}
         <div className="legend">
             <div className="legend-item"><span className="seat-sample available"></span>Beschikbaar</div>
             <div className="legend-item"><span className="seat-sample selected"></span>Geselecteerd</div>
@@ -50,7 +50,7 @@ const SeatingChart = ({ eventPrice }) => {
 
         <div className="stage">PODIUM / TONEEL</div>
 
-        // Grid van stoelen
+        {/* Stoelen grid */}
         <div className="seating-grid">
             {seats.map((seat) => (
                 <button
@@ -64,7 +64,7 @@ const SeatingChart = ({ eventPrice }) => {
                 </button>
             ))}
         </div>
-        // Summary van geselecteerde stoelen en prijs
+        {/* summary box */}
             {selectedSeats.length > 0 && (
                 <div className="booking-summary">
                     <p>Geselecterde stoelen: <strong>{selectedSeats.map(s => s.id).join(', ')}</strong></p>
