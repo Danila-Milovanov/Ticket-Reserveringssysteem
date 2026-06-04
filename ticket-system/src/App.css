@@ -299,3 +299,104 @@ main h2 {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
+/* Admin Panel Styles */
+.admin-container {
+  background: #202024;
+  border: 1px solid #29292e;
+  border-radius: 8px;
+  padding: 30px;
+  margin-top: 40px;
+}
+
+.error-banner {
+  background-color: #f75a68;
+  color: #fff;
+  padding: 12px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 500px;
+  margin-bottom: 30px;
+}
+
+.admin-form input {
+  background: #121214;
+  border: 1px solid #29292e;
+  padding: 12px;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.form-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.save-btn {
+  background: #04d361;
+  color: #000;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  background: #323238;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* management table styling */
+.admin-table-container {
+  overflow-x: auto;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  margin-top: 15px;
+}
+
+.admin-table th, .admin-table td {
+  padding: 12px;
+  border-bottom: 1px solid #29292e;
+}
+
+.admin-table th {
+  color: #a8a8b3;
+}
+
+.edit-action-btn {
+  background: #121214;
+  color: #04d361;
+  border: 1px solid #04d361;
+  padding: 6px 12px;
+  border-radius: 4px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.delete-action-btn {
+  background: #121214;
+  color: #f75a68;
+  border: 1px solid #f75a68;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.edit-action-btn:hover { background: #04d361; color: #000; }
+.delete-action-btn:hover { background: #f75a68; color: #fff; }
