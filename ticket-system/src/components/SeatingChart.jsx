@@ -35,5 +35,47 @@ const SeatingChart = ({ eventPrice }) => {
     );
   };
 
-  
-}
+  const selectedSeats = seats.filter((seat) => seat.status === 'selected');
+  const totalPrice = selectedSeats.length * eventPrice;
+
+  return (
+    <div className="seating-container">
+        <h3>Kies je zitplaatsen</h3>
+        // Legenda
+        <div className="legend">
+            <div className="legend-item"><span className="seat-sample available"></span>Beschikbaar</div>
+            <div className="legend-item"><span className="seat-sample selected"></span>Geselecteerd</div>
+            <div className="legend-item"><span className="seat-sample occupied"></span>Bezet</div>
+        </div>
+
+        <div className="stage">PODIUM / TONEEL</div>
+
+        // Grid van stoelen
+        <div className="seating-grid">
+            {seats.map((seat) => (
+                <button
+                key={seat.id}
+                    className={`seat ${seat.status}`}
+                    disabled={seat.status === 'occupied'}
+                    onClick={() => handleSeatClick(seat.id)}
+                    title={`Rij ${seat.row} Stoel ${seat.number}`}
+                >
+                    {seat.id}
+                </button>
+            ))}
+        </div>
+        // Summary van geselecteerde stoelen en prijs
+            {selectedSeats.length > 0 && (
+                <div className="booking-summary">
+                    <p>Geselecterde stoelen: <strong>{selectedSeats.map(s => s.id).join(', ')}</strong></p>
+                    <p>Totaalprijs: <strong className="price-tag">€{totalPrice.toFixed(2)}</strong></p>
+                    <button className="confirm-btn" onClick={() => alert('Zitplaatsen succesvol gereserveerd!')}>
+                        Bevestig Zitplaatsen
+                    </button>
+                </div>
+            )}
+    </div>
+  );
+};
+
+export default SeatingChart;
