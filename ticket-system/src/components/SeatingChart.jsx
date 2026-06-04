@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 const INITIAL_SEATING = [
     { id: 'A1', row: 'A', number: 1, status: 'available' },
@@ -16,3 +16,24 @@ const INITIAL_SEATING = [
 
 ];
 
+const SeatingChart = ({ eventPrice }) => {
+  const [seats, setSeats] = useState(INITIAL_SEATS);
+
+  // Toggle seat selectie
+  const handleSeatClick = (seatId) => {
+    setSeats((prevSeats) =>
+      prevSeats.map((seat) => {
+        if (seat.id === seatId) {
+          if (seat.status === 'available') {
+            return { ...seat, status: 'selected' }; // select it
+          } else if (seat.status === 'selected') {
+            return { ...seat, status: 'available' }; // deselect it
+          }
+        }
+        return seat; // If occupied / not matching - leave it
+      })
+    );
+  };
+
+  
+}
