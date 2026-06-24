@@ -5,14 +5,32 @@ import AdminPanel from './components/AdminPanel';
 import './App.css';
 
 const mockEventsData = [
-  { id: 1, title: "Zomer Festival 2026", date: "15 juli 2026", location: "Amsterdam Arena", price: 45.00, availableTickets: 150 },
-  { id: 2, title: "Live in Concert: De Jeugd", date: "22 augustus 2026", location: "Rotterdam Ahoy", price: 35.50, availableTickets: 8 },
-  { id: 3, title: "Techno Rave Night", date: "05 september 2026", location: "Klokgebouw Eindhoven", price: 29.99, availableTickets: 0 }
+  { 
+    id: 1, 
+    title: "Zomer Festival 2026", 
+    date: "15 juli 2026", 
+    location: "Amsterdam Arena", 
+  ticketTypes: [
+    { name: "Regulier", price: 45.00, available: 120 },
+    { name: "VIP Lounge", price: 95.00, available: 30 }
+  ]
+  },
+  { 
+  id: 2, 
+  title: "Live in Concert: De Jeugd", 
+  date: "22 augustus 2026", 
+  location: "Rotterdam Ahoy", 
+  ticketTypes: [
+  { name: "Staanplaats", price: 35.50, available: 50 },
+  { name: "Gouden Cirkel", price: 60.00, available: 5 }
+  ]
+  }
 ];
 
 function App() {
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [activeChartPrice, setActiveChartPrice] = useState(45.00);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -34,19 +52,38 @@ function App() {
     }));
   };
 
-  // CREATE
-  const handleAddEvent = (newEventData) => {
-    const newEvent = {
-      id: Date.now(), // Generate unique simple timestamp ID
-      ...newEventData
+ const handleAddEvent = (newEventData) => {
+  const newEvent = {
+    id: Date.now(),
+     title: newEventData.title,
+     date: newEventData.date,
+     location: newEventData.location,
+    ticketTypes: [
+        { name: "Regulier", price: parseFloat(newEventData.price), available: parseInt(newEventData.availableTickets, 10) }
+      ]
     };
     setEvents(prev => [...prev, newEvent]);
-    alert(`Evenement "${newEvent.title}" succesvol toegevoegd!`);
+    alert(`"${newEvent.title}" toegevoegd met Regulier tickettype!`);
   };
 
-  // UPDATE
   const handleUpdateEvent = (id, updatedFields) => {
-    setEvents(prev => prev.map(ev => (ev.id === id ? { ...ev, ...updatedFields } : ev)));
+    setEvents(prev => prev.map(ev => {
+      if (ev.id === id) {
+        return {
+          ...ev,
+          title: updatedFields.title,
+          date: updatedFields.date,
+          location: updatedFields.location,
+          // Maintain original tiers or modify the baseline regular price
+          ticketTypes: ev.ticketTypes.map((tier, index) => 
+            index === 0 
+              ? { ...tier, price: parseFloat(updatedFields.price), available: parseInt(updatedFields.availableTickets, 10) }
+              : tier
+          )
+        };
+      }
+      return ev;
+    }));
     alert('Evenement succesvol bijgewerkt!');
   };
 
