@@ -79,3 +79,4 @@ const EventCard = ({ event, onReserve, onSelectPrice = () => {} }) => {
 };
 
 export default EventCard;
+//done
