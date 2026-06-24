@@ -108,7 +108,7 @@ function App() {
           <div className="loader">Evenementen laden...</div>
         ) : (
           <>
-            <EventList events={events} onReserve={handleReserveTickets} />
+            <EventList events={events} onReserve={handleReserveTickets} onSelectPrice={setActiveChartPrice} />
             
             <SeatingChart eventPrice={45.00} />
 
