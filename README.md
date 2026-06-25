@@ -14,7 +14,7 @@ Het systeem is succesvol opgeleverd met een volledige dekking van zowel de verei
 * **US3: Zitplaatsen bekijken:** Een interactieve, visuele plattegrond (seating chart) van de zaal waarmee gebruikers realtime beschikbare stoelen kunnen selecteren. De totale prijs wordt direct berekend.
 * **US4: Evenementen beheren (Admin):** Een afgeschermd beheerpaneel (CRUD) voor organisatoren om evenementen toe te voegen, aan te passen of te verwijderen met strikte formuliervalidatie.
 
-### Should Haves (Toegevoegde Waarde)
+### Should Haves
 * **US5: Tickettypes beheren:** Het datamodel en de interface zijn uitgebreid naar een geneste structuur. Gebruikers kunnen per evenement via een dropdown selecteren tussen verschillende prijscategorieën (bijv. **Regulier** vs. **VIP Lounge**). De winkelmand en stoelreservering synchroniseren hier live mee.
 
 ---
